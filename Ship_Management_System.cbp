@@ -38,6 +38,7 @@
 		</Unit>
 		<Unit filename="shape_function_definition.h" />
 		<Unit filename="sub_action_function.h" />
+		<Unit filename="sub_sub_function.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

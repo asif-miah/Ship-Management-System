@@ -2,9 +2,9 @@ int signup(long long int *numptr, char * passptr ) // 1 number action function f
 {
 
 
-    char ch = ' ';
+   char ch = ' ';
    char  name[10]= " ";
-  int  sninrtn = 0;
+   int  sninrtn = 0;
    printf("Note: Please enter all legal information. Your name and password must have to be character only. ");
    printf("leter limit 10 characters. Remember your number and password for further verification.\n\n ");
    printf("Enter your mobile number \n");
@@ -93,25 +93,30 @@ void home(void) //3 number action function for home menu
         {
 
 
-       // ticket();
+       ticket();
         break;
        }
 
     case 'b':
         {
-            //info();
-            break;
+        info();
+        goto level;
+        break;
         }
     case 'c':
-        //help();
+        help();
+        goto level;
+        break;
+    case 'd':
+        return 0;
         break;
     default :
         {
         printf("You press invalid choice\n");
-        printf("please wait 3 seconds and try again\n");
+        printf("Please wait 3 seconds and try again\n");
         sleep(1);
         system("cls");
-        goto level;
+        goto level ;
         }
 }
 }
