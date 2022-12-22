@@ -42,3 +42,22 @@ int sitbook(char sit[12][3], int row, int col)
            printf("Error> You entered booked sit's row and column\n");
        }
 }
+
+void choice_ship_time()
+{
+   printf("THE SHIP SHEDULE:\n\n");
+   printf("(1)\n");
+   printf("Ship Name : EVER GREEN 101\n");
+   printf("Start Time : 10 AM\n");
+   printf("Ticket price : 600 TK(BDT)\n\n");
+   printf("(2)\n");
+   printf("Ship Name : EVER GREEN 102\n");
+   printf("Start Time : 1 PM\n");
+   printf("Ticket price : 700 TK(BDT)\n\n");
+   printf("(3)\n");
+   printf("Ship Name : EVER GREEN 103\n");
+   printf("Start Time : 8 PM\n");
+   printf("Ticket price : 700 TK(BDT)\n");
+
+
+}

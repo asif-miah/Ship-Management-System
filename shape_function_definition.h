@@ -21,7 +21,7 @@ void ship(void)
 }
 
 
-void name(void)
+void ship_name(void)
 {
 printf("  ______ __      __ ______  _____       \n");
 printf(" |  ____|\\ \\    / /|  ____||  __ \\      \n");

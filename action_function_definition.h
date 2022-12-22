@@ -1,12 +1,14 @@
-int signup(long long int *numptr, char * passptr ) // 1 number action function for signup
+
+
+int signup(long long int *numptr, char * passptr, char * name) // 1 number action function for signup
 {
 
 
    char ch = ' ';
-   char  name[10]= " ";
+
    int  sninrtn = 0;
    printf("Note: Please enter all legal information. Your name and password must have to be character only. ");
-   printf("leter limit 10 characters. Remember your number and password for further verification.\n\n ");
+   printf("leter limit 10 characters. Remember your number and password for further verification.\n\n");
    printf("Enter your mobile number \n");
    scanf("%lld", numptr);
 
@@ -22,7 +24,7 @@ int signup(long long int *numptr, char * passptr ) // 1 number action function f
    {
    case 'y':
        system("cls");
-       sninrtn = signin(numptr, passptr);
+       sninrtn = signin(numptr, passptr, name);
         return sninrtn;
         break;
    case 'n':
@@ -41,7 +43,7 @@ int signup(long long int *numptr, char * passptr ) // 1 number action function f
 
 
 }
-int signin(long long int *numptr, char * passptr) // 2 number action function signin
+int signin(long long int *numptr, char * passptr, char  * name) // 2 number action function signin
 {
    long long num = 0;
    char pass[10]= " ";
@@ -77,7 +79,7 @@ int signin(long long int *numptr, char * passptr) // 2 number action function si
        return 1;
 
 }
-void home(void) //3 number action function for home menu
+void home(long long int number, char * password ,char * name) //3 number action function for home menu
 {
     char choice = ' ';
     level :
@@ -93,7 +95,7 @@ void home(void) //3 number action function for home menu
         {
 
 
-       ticket();
+       ticket(&number, password , name);
         break;
        }
 

@@ -11,9 +11,10 @@ int main()
 
     long long int number = 0;
     char password[10] = " ";
+    char  name[10]= " ";
     int  sninrtn = 0;
     char ch = ' ';
-    name();
+    ship_name();
     sleep(1);
     system("cls");
     ship();
@@ -32,10 +33,10 @@ int main()
     switch(ch)
       {
       case 'i':
-       sninrtn = signin(&number, password);
+       sninrtn = signin(&number, password , name);
         break;
       case 'u':
-      sninrtn =  signup(&number, password);
+      sninrtn =  signup(&number, password , name);
 
         break;
       default:
@@ -59,8 +60,8 @@ int main()
  printf("well Come to EVER GREEN.\n");
  sleep(1);
  system("cls");
- name();
- home();
+ ship_name();
+ home(&number, password , name);
 
     return 0;
 }
