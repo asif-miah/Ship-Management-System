@@ -1,8 +1,9 @@
 # depslib dependency file v1.0
-1671744593 source:c:\users\hp\onedrive\desktop\project cse115\ship_management_system\main.c
+1672177435 source:c:\users\hp\onedrive\desktop\project cse115\ship_management_system\main.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
+	<string.h>
 	"shape_function_definition.h"
 	"action_function_definition.h"
 	"sub_action_function.h"
@@ -12,9 +13,9 @@
 
 1671744391 c:\users\hp\onedrive\desktop\project cse115\ship_management_system\shape_function_definition.h
 
-1671744593 c:\users\hp\onedrive\desktop\project cse115\ship_management_system\action_function_definition.h
+1672177221 c:\users\hp\onedrive\desktop\project cse115\ship_management_system\action_function_definition.h
 
-1671745176 c:\users\hp\onedrive\desktop\project cse115\ship_management_system\sub_action_function.h
+1672176173 c:\users\hp\onedrive\desktop\project cse115\ship_management_system\sub_action_function.h
 
-1671744335 c:\users\hp\onedrive\desktop\project cse115\ship_management_system\sub_sub_function.h
+1672176173 c:\users\hp\onedrive\desktop\project cse115\ship_management_system\sub_sub_function.h
 

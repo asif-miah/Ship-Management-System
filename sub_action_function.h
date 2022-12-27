@@ -44,10 +44,10 @@ void info(void)
 
 void ticket(long long int number, char * password , char * name)
 {
-    int row = 0, col = 0, bookrtn = 0;
+    int serial_number = 0, bookrtn = 0;
     int sit_number = 0;
     char dstn = ' ';
-    char sit[12][3];
+    int sit[12][3];
     int ship_choice =  0;
 
     printf("Choice your destination\n");
@@ -66,26 +66,40 @@ void ticket(long long int number, char * password , char * name)
 
     system("cls");
     sitplan(sit);
+
+
     display(sit);
+
+
+
     printf("\nHow many sit you want to book ? Enter the number.\n");
     scanf("%d", &sit_number);
-    printf("choose available sit from this sit table\n");
-    printf("Enter the row and column number in sequentially.\n Row and column index start with 0 (enter 0 for row, column number 1, and enter 1 for row column number 2 \n\n");
+    printf("Choose available sit from this sit table\n");
+    printf("Remember, int sit plan table '0' for booked sit and serial number for available sit.\n\n");
     for(int i = 1; i<= sit_number; i++)
     {
+
         level:
-      printf("Enter row of %d number sit.\n", i);
-      scanf("%d", &row);
-      printf("Enter column of %d number sit.\n", i);
-      scanf("%d", &col);
-      bookrtn = sitbook(sit,row, col);
+
+      printf("Enter the available sit number for ( %d ) number person.\n", i);
+      scanf("%d",&serial_number);
+
+      bookrtn = sitbook(sit[0],serial_number);
+
+
      if(bookrtn == 1)
      {
-         printf("%d number sit is booked\n", i);
+        system("cls");
+         printf("%d number sit is booked for %d number person\n",serial_number,  i);
+        sleep(3);
+         bookrtn = 0;
+         display(sit);
      }
      else
      {
-         printf("\nPlease enter available sit address.\n");
+        system("cls");
+
+         display(sit);
        goto level;
      }
 
@@ -100,7 +114,7 @@ void ticket(long long int number, char * password , char * name)
     {
     printf("\n\nEnter any key for collecting ticket\n");
     printf("Otherwise you will be exited after than %d second\n", i);
-    sleep(1);
+    sleep(15);
     system("cls");
     if(kbhit())
     {
@@ -131,6 +145,7 @@ void ticket(long long int number, char * password , char * name)
            fprintf(fticket, "\n");
           fprintf(fticket, "Phone Number: %lld\n", number);
           fprintf(fticket, "Password: %s\n", password);
+          fprintf(fticket, "Number of booked sit : %d\n", sit_number);
 
 
            fclose(fticket);
@@ -138,7 +153,7 @@ void ticket(long long int number, char * password , char * name)
        }
        system("cls");
        printf("Your ticket is saved in %s\n", file);
-       printtf("Wait for 4 second. You will be shifted in main manue.\n");
+       printf("Wait for 4 second. You will be shifted in main manue.\n");
        sleep(4);
        system("cls");
 

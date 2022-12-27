@@ -1,4 +1,9 @@
 
+/*
+* Sign up function definition. Here, we will take user name, number and password.
+* After that we will try user to quick sign in.
+*If user not want to quick sign in then user will shift in main menue.
+*/
 
 int signup(long long int *numptr, char * passptr, char * name) // 1 number action function for signup
 {
@@ -43,6 +48,16 @@ int signup(long long int *numptr, char * passptr, char * name) // 1 number actio
 
 
 }
+
+
+
+/*
+* sign in function definition. Here we will take user number and password
+* and check them with previously entered user name and password in sign up section.
+*/
+
+
+
 int signin(long long int *numptr, char * passptr, char  * name) // 2 number action function signin
 {
    long long num = 0;
@@ -121,5 +136,29 @@ void home(long long int number, char * password ,char * name) //3 number action 
         goto level ;
         }
 }
+}
+
+/*
+*Admin login for ship management authority to maintain the system.
+* Admin function definition
+* We will setup a secret password which will be known by only authority.
+* Here we will try to match the secret pass with entered password by admin.
+*/
+
+int admin_login(long long int *numptr, char * passptr, char  * name)
+{
+    printf("Please, enter the admin name.\n");
+    gets(name);
+    fflush(stdin);
+    printf("Enter admin password.\n");
+    gets(passptr);
+    char admin_name[10] = "asif";
+    char admin_pass[15] = "asif";
+    if(!strcmp(admin_name, name) && !strcmp(admin_pass, passptr))
+        return 1;
+    return 0;
+
+
+
 }
 

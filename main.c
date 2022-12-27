@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include<conio.h>
+#include<string.h>
 #include "shape_function_definition.h"
 #include "action_function_definition.h"
 #include "sub_action_function.h"
@@ -28,6 +29,7 @@ int main()
 
     printf("\n\nPress 'i' for sign in \n");
     printf("Press 'u' for sign up\n");
+    printf("Press 'a' for admin login(Only for Authority).\n");
     ch = getch();
     system("cls");
     switch(ch)
@@ -38,6 +40,16 @@ int main()
       case 'u':
       sninrtn =  signup(&number, password , name);
 
+        break;
+
+      case 'a':
+        sninrtn = admin_login(&number, password , name);
+        if(sninrtn)
+            {
+            printf("Well Come, Admin.\n");
+            sleep(2);
+            system("cls");
+            }
         break;
       default:
        {
@@ -61,6 +73,7 @@ int main()
  sleep(1);
  system("cls");
  ship_name();
+
  home(&number, password , name);
 
     return 0;

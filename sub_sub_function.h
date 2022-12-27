@@ -1,46 +1,95 @@
-void sitplan(char sit[12][3])
+void sitplan(int sit[12][3])
 
 {
+    int serial_num = 0;
 
    for(int i = 0; i<12; i++)
    {
+
        for(int j = 0; j<3; j++)
-        sit[i][j] = 'A';
+       {
+
+        serial_num++;
+        sit[i][j] = serial_num;
+        }
+
    }
 
+
+
+
    for(int i = 0; i<12; i++)
    {
        for(int j = 0; j<3; j++)
-        if(i%2 ==  0)
-        sit[i][j] = 'B';
+        {
+            if(i%4 ==  0)
+            sit[i][j] = 0;
+        }
    }
 
 }
 
-void display(char sit[12][3])
+void display(int sit[12][3])
 {
-    printf("B for sit bokeed and A for sit available\n\n\n");
+    printf("Sit Plan: \n\n\n");
+
     for(int i = 0; i<12; i++)
    {
+        printf("----------------------\n");
        for(int j = 0; j<3; j++)
-       printf("%c\t",sit[i][j]);
-        printf("\n\n");
+       {
+           printf("|");
+          if(sit[i][j] >= 0 && sit[i][j] <= 9)
+           printf("  0%d  ",sit[i][j]);
+          else
+           printf("  %d  ",sit[i][j]);
+
+
+       }
+       printf("|");
+        printf("\n");
    }
+   printf("----------------------\n");
 
 }
 
-int sitbook(char sit[12][3], int row, int col)
+int sitbook(int sit[12][3], int serial_number)
 {
 
-       if(sit[row][col] != 'B')
+    if(serial_number > 0 && serial_number <= 36)
+    {
+
+
+       for(int i = 0; i<12; i ++)
        {
-           sit[row][col] = 'B';
-           return 1;
-       }
-       else
-       {
-           printf("Error> You entered booked sit's row and column\n");
-       }
+          for(int j = 0; j < 3 ; j++)
+          {
+               if(sit[i][j] == serial_number)
+                 {
+                   sit[i][j] = 0;
+                   return 1;
+                 }
+
+
+          }
+
+        }
+
+
+      }
+
+
+
+
+           system("cls");
+           printf("Error> You entered invalid sit number.\n");
+           printf("%d number sit is booked or out of sit range.\n");
+           printf("Please, wait for 3 seconds and try again.\n");
+           sleep(3);
+           return 0;
+
+
+
 }
 
 void choice_ship_time()
