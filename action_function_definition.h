@@ -60,13 +60,15 @@ int signup(long long int *numptr, char * passptr, char * name) // 1 number actio
 
 int signin(long long int *numptr, char * passptr, char  * name) // 2 number action function signin
 {
+
    long long num = 0;
    char pass[10]= " ";
    int flag = 0;
    again:
+       system("color 0A");
        printf("Reminder:\nYou will be able to sign in if you signed up in our Ship Management System.\n");
        printf("Remember, you have %d chance to try. If you failed then automatically you will be sifted to Home menu\n", 2 - flag);
-       system("color 07");
+
    printf("Enter your phone number\n");
    scanf("%lld", &num);
    printf("Enter your password\n");
@@ -79,9 +81,9 @@ int signin(long long int *numptr, char * passptr, char  * name) // 2 number acti
 
                 flag++;
                 system("cls");
-                system("color 7C");
+                system("color FC");
                 printf("Mismatch your number and password.\Please, wait 3 seconds , and try again\n ");
-                sleep(2);
+                sleep(TIME);
                 system("cls");
                 if(flag == 2)
                 {
@@ -91,6 +93,7 @@ int signin(long long int *numptr, char * passptr, char  * name) // 2 number acti
                 goto again;
             }
        }
+       system("color 0F");
        return 1;
 
 }
@@ -110,7 +113,7 @@ void home(long long int number, char * password ,char * name) //3 number action 
         {
 
 
-       ticket(&number, password , name);
+       ticket(number, password , name);
         break;
        }
 
@@ -131,7 +134,7 @@ void home(long long int number, char * password ,char * name) //3 number action 
         {
         printf("You press invalid choice\n");
         printf("Please wait 3 seconds and try again\n");
-        sleep(1);
+        Beep(BEEP, 3000);
         system("cls");
         goto level ;
         }
@@ -147,6 +150,7 @@ void home(long long int number, char * password ,char * name) //3 number action 
 
 int admin_login(long long int *numptr, char * passptr, char  * name)
 {
+    system("color 04");
     printf("Please, enter the admin name.\n");
     gets(name);
     fflush(stdin);
@@ -154,6 +158,7 @@ int admin_login(long long int *numptr, char * passptr, char  * name)
     gets(passptr);
     char admin_name[10] = "asif";
     char admin_pass[15] = "asif";
+     system("color 0F");
     if(!strcmp(admin_name, name) && !strcmp(admin_pass, passptr))
         return 1;
     return 0;

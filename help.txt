@@ -1,1 +1,13 @@
-asif is a good boy
+Need Help !
+
+
+Ticket Purchase:
+
+1. Firtly, signup successfully
+2. Sign in with the same number and password which you used for sign in.
+3. After succesfully sign in, you will face our home menu. Press 'a' for ticket purching.
+4. We have three ship with diffrent schedule. Choose your desire option.
+5. Then enter the number how many ticket you want to purchase.
+6. After that you have to choice available sit from sit table.
+7. Lastly you can be able to download your ticket slip.
+

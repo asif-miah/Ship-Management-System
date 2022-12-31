@@ -85,28 +85,52 @@ int sitbook(int sit[12][3], int serial_number)
            printf("Error> You entered invalid sit number.\n");
            printf("%d number sit is booked or out of sit range.\n");
            printf("Please, wait for 3 seconds and try again.\n");
-           sleep(3);
+           system("color FC");
+           Beep(BEEP, 3500);
+           system("color 0F");
+
            return 0;
 
 
 
 }
 
-void choice_ship_time()
+
+
+int ship_choice(Ship (*ship)[4])
 {
-   printf("THE SHIP SHEDULE:\n\n");
-   printf("(1)\n");
-   printf("Ship Name : EVER GREEN 101\n");
-   printf("Start Time : 10 AM\n");
-   printf("Ticket price : 600 TK(BDT)\n\n");
-   printf("(2)\n");
-   printf("Ship Name : EVER GREEN 102\n");
-   printf("Start Time : 1 PM\n");
-   printf("Ticket price : 700 TK(BDT)\n\n");
-   printf("(3)\n");
-   printf("Ship Name : EVER GREEN 103\n");
-   printf("Start Time : 8 PM\n");
-   printf("Ticket price : 700 TK(BDT)\n");
+    int choice = 1;
+    strcpy(ship[0]->name, "EVER  GREEN 110");
+
+    /* (*ship)[x].name it will only work when print by (*ship)[x].name . otherwise we have to*/
+    strcpy(ship[0]->time, "10 : 00  AM");
+    ship[0]->price = 799;
+
+    strcpy((*ship)[1].name, "EVER  GREEN 101");
+    strcpy(ship[1]->time, "01 : 00  PM");
+    ship[1]->price = 699;
+
+    strcpy((*ship)[2].name, "EVER  GREEN 108");
+    strcpy(ship[2]->time, "08 : 30  PM");
+    ship[2]->price = 899;
+   system("E:\\Programming\\ship1.jpg");
+    printf("\n\tEVER  GREEN\n\n");
+
+    for(int i = 0; i < 3; i++)
+    {
+        printf("( %d )\n", i+1);
+        printf("Ship Name: %s\n", (*ship)[i].name);
+        printf("Ship Launch Time: %s\n", ship[i]->time);
+        printf("Ticket Price: %d\n", ship[i]->price);
+        printf("\n\n");
+
+
+    }
+
+
+    printf("Please, enter your choice.\n");
+    scanf("%d", &choice);
+    return choice - 1;
 
 
 }

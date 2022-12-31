@@ -1,6 +1,7 @@
 
 void help(void)
 {
+    system("cls");
     FILE *ptr = NULL;
     int ch = 0 ;
     ptr = fopen("help.txt", "r");
@@ -19,10 +20,10 @@ void help(void)
 }
 void info(void)
 {
-
+system("cls");
     FILE * fp = NULL;
    int str = 0;
-    fp = fopen("information.txt", "w+");
+    fp = fopen("information.txt", "r");
       while(!feof(fp))
     {
        str = fgetc(fp);
@@ -40,7 +41,12 @@ void info(void)
 
 }
 
+typedef struct{
+    char name[20];
+    char time[10];
+    int price
 
+}Ship;
 
 void ticket(long long int number, char * password , char * name)
 {
@@ -48,7 +54,11 @@ void ticket(long long int number, char * password , char * name)
     int sit_number = 0;
     char dstn = ' ';
     int sit[12][3];
-    int ship_choice =  0;
+    int ship_Num = 0;
+
+    Ship ship[4];
+    system("cls");
+
 
     printf("Choice your destination\n");
     printf("A. Narsingdi.\n");
@@ -60,9 +70,9 @@ void ticket(long long int number, char * password , char * name)
     dstn = getch();
     system("cls");
 
-    choice_ship_time();
-    printf("Please, enter your choice.\n");
-    scanf("%d", &ship_choice);
+
+    ship_Num = ship_choice(&ship);
+
 
     system("cls");
     sitplan(sit);
@@ -79,9 +89,13 @@ void ticket(long long int number, char * password , char * name)
     for(int i = 1; i<= sit_number; i++)
     {
 
-        level:
 
-      printf("Enter the available sit number for ( %d ) number person.\n", i);
+        level:
+            system("cls");
+
+            display(sit);
+
+      printf("Enter the available sit's serial number for ( %d ) number person.\n", i);
       scanf("%d",&serial_number);
 
       bookrtn = sitbook(sit[0],serial_number);
@@ -89,75 +103,142 @@ void ticket(long long int number, char * password , char * name)
 
      if(bookrtn == 1)
      {
+         system("color E0");
         system("cls");
-         printf("%d number sit is booked for %d number person\n",serial_number,  i);
-        sleep(3);
-         bookrtn = 0;
          display(sit);
+         printf("%d number sit is booked for %d number person\n",serial_number,  i);
+         sleep(TIME);
+         system("cls");
+         bookrtn = 0;
+         system("color 0F");
+
      }
      else
      {
-        system("cls");
-
-         display(sit);
-       goto level;
+       system("cls");
+        display(sit);
+        goto level;
      }
 
     }
 
+    system("cls");
+    system("color 0A");
     display(sit);
+    sleep(TIME);
+    system("color 0F");
     int flag = 0;
     char file[30];
     char ch = 'y';
-
+    fflush(stdin);
     for(int i = 15; i >= 0; i-- )
     {
+        system("cls");
     printf("\n\nEnter any key for collecting ticket\n");
     printf("Otherwise you will be exited after than %d second\n", i);
-    sleep(15);
+    sleep(1);
     system("cls");
     if(kbhit())
     {
         flag++;
+        getch();
         break;
     }
 
+
     }
+    fflush(stdin);
     if(flag == 0)
        {
            system("cls");
-       printf("Do you want to save your ticket in drive ? If then press y or n for exit.\n");
-       fflush(stdin);
+       printf("Do you want to download your ticket in your drive ?\nIf then press y or n for exit.\n");
+
        ch = getch();
        }
        if(ch == 'y'  || flag != 0)
        {
-           char sp_nm[10] = "EVER GREEN";
+           system("cls");
+
+
            FILE * fticket;
            system("cls");
            printf("Enter your file name with extension where you want to save ticket.\n");
            scanf("%s", file);
            fticket =  fopen(file, "w+");
-           fprintf(fticket, "\t%s\n", sp_nm);
+           fflush(stdin);
+           fprintf(fticket, "\t\tEVER  GREEN\n");
            fprintf(fticket, "\n\n");
            fprintf(fticket, "Name : ");
            fputs(name,fticket);
            fprintf(fticket, "\n");
-          fprintf(fticket, "Phone Number: %lld\n", number);
-          fprintf(fticket, "Password: %s\n", password);
-          fprintf(fticket, "Number of booked sit : %d\n", sit_number);
+           fprintf(fticket, "Phone Number: %lld\n", number);
+           fprintf(fticket, "Password: %s\n", password);
+           fprintf(fticket, "Number of booked sit : %d\n", sit_number);
+           fprintf(fticket, "\n\n\tTicket information\n\n");
+
+          for(int sitcount = 1; sitcount <= sit_number; sitcount++)
+          {
+
+              fprintf(fticket,"( %d )\n", sitcount);
+              fprintf(fticket, "%s\n", ship[ship_Num].name);
+              fprintf(fticket, "%s\n", ship[ship_Num].time);
+              fprintf(fticket, "%d\n", ship[ship_Num].price);
+              fprintf(fticket, "\n\n");
+
+
+
+          }
+
+
+
 
 
            fclose(fticket);
 
-       }
-       system("cls");
-       printf("Your ticket is saved in %s\n", file);
-       printf("Wait for 4 second. You will be shifted in main manue.\n");
-       sleep(4);
-       system("cls");
 
-     return 1;
+       }
+            system("cls");
+
+
+
+           system("color 0A");
+           printf("\tEVER  GREEN\t\n");
+           printf("\n\n");
+           printf("Name: %s\n", name);
+           printf("Phone Number: %lld\n", number);
+           printf("Password: %s\n", password);
+           printf("Number of booked sit : %d\n", sit_number);
+           printf("\n\n\tTicket information\n\n");
+
+          for(int sitcount = 1; sitcount <= sit_number; sitcount++)
+          {
+
+              printf("( %d )\n", sitcount);
+              printf("%s\n", ship[ship_Num].name);
+              printf("%s\n", ship[ship_Num].time);
+              printf("%d\n", ship[ship_Num].price);
+              printf("\n\n");
+
+
+
+          }
+
+
+          Beep(BEEP, 1000);
+          system("color F0");
+
+
+       printf("Your ticket is saved in %s\n", file);
+       printf("Wait for 3 second. You will be shifted in main manue.\n");
+       system("color E0");
+       sleep(TIME);
+       system("cls");
+       system("color 07");
+
+
+
+
+
 
 
 
