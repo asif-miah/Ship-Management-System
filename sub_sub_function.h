@@ -100,19 +100,19 @@ int sitbook(int sit[12][3], int serial_number)
 int ship_choice(Ship (*ship)[4])
 {
     int choice = 1;
-    strcpy(ship[0]->name, "EVER  GREEN 110");
+    strcpy((*ship)[0].name, "EVER  GREEN 110");
 
     /* (*ship)[x].name it will only work when print by (*ship)[x].name . otherwise we have to*/
-    strcpy(ship[0]->time, "10 : 00  AM");
-    ship[0]->price = 799;
+    strcpy((*ship)[0].time, "10 : 00  AM");
+    (*ship)[0].price = 799;
 
     strcpy((*ship)[1].name, "EVER  GREEN 101");
-    strcpy(ship[1]->time, "01 : 00  PM");
-    ship[1]->price = 699;
+    strcpy((*ship)[1].time, "01 : 00  PM");
+    (*ship)[1].price = 699;
 
     strcpy((*ship)[2].name, "EVER  GREEN 108");
-    strcpy(ship[2]->time, "08 : 30  PM");
-    ship[2]->price = 899;
+    strcpy((*ship)[2].time, "08 : 30  PM");
+    (*ship)[2].price = 899;
    system("E:\\Programming\\ship1.jpg");
     printf("\n\tEVER  GREEN\n\n");
 
@@ -120,8 +120,8 @@ int ship_choice(Ship (*ship)[4])
     {
         printf("( %d )\n", i+1);
         printf("Ship Name: %s\n", (*ship)[i].name);
-        printf("Ship Launch Time: %s\n", ship[i]->time);
-        printf("Ticket Price: %d\n", ship[i]->price);
+        printf("Ship Launch Time: %s\n", (*ship)[i].time);
+        printf("Ticket Price: %d\n", (*ship)[i].price);
         printf("\n\n");
 
 

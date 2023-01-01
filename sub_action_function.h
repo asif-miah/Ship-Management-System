@@ -95,6 +95,8 @@ void ticket(long long int number, char * password , char * name)
 
             display(sit);
 
+      printf("Remember, int sit plan table '0' for booked sit and serial number for available sit.\n\n");
+
       printf("Enter the available sit's serial number for ( %d ) number person.\n", i);
       scanf("%d",&serial_number);
 
